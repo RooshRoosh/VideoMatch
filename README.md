@@ -10,5 +10,4 @@
 приложение работает под python3 все зависимости собраны в requirements.txt
 
 Для установки
-
-$pip install -r requirements.txt
+    pip install -r requirements.txt
