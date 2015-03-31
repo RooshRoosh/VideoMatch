@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}
+    Представьтесь
+{% endblock %}
+{% block content %}
+<form action="" method="POST">
+{% csrf_token %}
+<table>
+    <tr>
+        <td>
+            <label for="login">
+                Участник:
+            </label>
+        </td>
+        <td>
+            <input id="login" type="text" name="login" value='' placeholder="Укажите свой логин">
+        </td>
+    </tr>
+    <tr>
+        <td>
+
+        </td>
+        <td>
+             <input type="submit" value="начать просмотр">
+        </td>
+    </tr>
+</table>
+
+
+</form>
+{% endblock %}

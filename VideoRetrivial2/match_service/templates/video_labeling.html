@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block extra_js %}
+    <script src="/static/js/app.js"></script>
+{% endblock %}
+{% block title %}
+
+{% endblock %}
+{% block content %}
+<div class="row" ng-app="myApp" ng-controller="videoLabeling" ng-init="playerInit()">
+    <div class="col-md-12" >
+        <div class="col-md-7">
+            <h2>{${ videoTitle }$}</h2>
+            <youtube width="640" height="390" videoid="{${ videoid }$}"></youtube>
+        </div>
+
+        <div class="col-md-5">
+            <p class="h3">
+                Помогает ли это видео ответить на вопрос?
+            </p>
+            <h2>
+                {${ originalQuestion }$}
+            </h2>
+            <div class="row">
+                <div class="col-md-12" ng-hide="{${ newVideoLoad }$}">
+                    <a class="btn-lg btn btn-success col-md-4" id="yesButton" href="javascript:void(1);"
+                            ng-click='yesButtonClick()'>
+                        Да
+                    </a>
+                    <a class="btn-lg btn btn-danger col-md-offset-4 col-md-4" id="noButton" href="javascript:void(1);"
+                            ng-click='noButtonClick()'>
+                        Нет
+                    </a>
+                </div>
+                <div class="col-md-12" ng-display="{${ newVideoLoad }$}">
+                    <button class="btn-lg btn btn-info col-md-12" disabled>
+                        До появления контролов...
+                        <span>{${ duration }$}</span> сек
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-12">
+        <p>показано видео по запросу
+            "{${ translatedQuestion }$}"
+        </p>
+    </div>
+</div>
+{% endblock %}

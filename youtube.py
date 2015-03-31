@@ -51,12 +51,19 @@ def youtube_search(search_query, max_result=50):
             id=video_id,
             part=','.join(details_parts)
         ).execute()
+
+        # comments = youtube.comment().list(
+        #     id=video_id
+        # ).execute()
+        # pprint.pprint(comments)
+
         yield item
 
 
 
 if __name__ == "__main__":
     for item in youtube_search(
-        search_query='Как стараться?'
+        search_query='Как стараться?',
+        max_result=1
     ):
         pprint.pprint(item)
